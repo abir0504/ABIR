@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Md. Mehedi Hasan Abir - Professional Web Developer, Programmer, Creative Thinker & Freelancer. Hire me for premium web development, UI/UX design, and AI solutions." />
+  <meta name="keywords" content="Mehedi Hasan Abir, Web Developer, Freelancer, React, Node.js, Portfolio, UI/UX Designer" />
+  <meta name="author" content="Md. Mehedi Hasan Abir" />
+  <meta property="og:title" content="Md. Mehedi Hasan Abir | Premium Portfolio" />
+  <meta property="og:description" content="World-class web developer & freelancer. Premium portfolio showcasing cutting-edge projects." />
+  <meta property="og:type" content="website" />
+  <title>Md. Mehedi Hasan Abir | Web Developer & Freelancer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-letter">A</span>
+        <span class="loader-letter">B</span>
+        <span class="loader-letter">I</span>
+        <span class="loader-letter">R</span>
+      </div>
+      <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+      <p class="loader-text">Loading Experience...</p>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-text">Abir<span class="logo-dot">.</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#services" class="nav-link" data-i18n="nav_services">Services</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#blog" class="nav-link" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="bn">বাং</button>
+          <button class="lang-btn" data-lang="ar">عر</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="themeIcon"></i>
+        </button>
+        <a href="#" class="btn-hire" data-i18n="nav_hire" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Floating Social Icons -->
+  <div class="floating-socials">
+    <a href="https://web.facebook.com/mahadi.hasan.abir.127077/photos" target="_blank" class="float-social" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/mahadi.abir99/" target="_blank" class="float-social" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/8801609221481" target="_blank" class="float-social" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://linkedin.com" target="_blank" class="float-social" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com" target="_blank" class="float-social" title="GitHub"><i class="fab fa-github"></i></a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-bg-orbs">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="hero_badge">Available for Freelance Work</span>
+        </div>
+        <h1 class="hero-name">
+          <span class="name-line">Md. Mehedi</span>
+          <span class="name-line name-gold">Hasan Abir</span>
+        </h1>
+        <div class="hero-role">
+          <span class="role-prefix" data-i18n="hero_role_prefix">I'm a </span>
+          <span class="typed-text" id="typedText"></span>
+          <span class="typed-cursor">|</span>
+        </div>
+        <p class="hero-desc" data-i18n="hero_desc">Crafting digital experiences that blend aesthetic beauty with technical excellence. I build premium web solutions that drive results and leave lasting impressions.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">
+            <i class="fas fa-paper-plane"></i> <span data-i18n="btn_hire_me">Hire Me</span>
+          </a>
+          <a href="#projects" class="btn-secondary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'});return false;">
+            <i class="fas fa-eye"></i> <span data-i18n="btn_view_work">View Work</span>
+          </a>
+          <a href="#" class="btn-outline" id="downloadCV">
+            <i class="fas fa-download"></i> <span data-i18n="btn_download_cv">Download CV</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="stat-num">50+</span><span class="stat-label" data-i18n="stat_projects_label">Projects</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="stat-num">30+</span><span class="stat-label" data-i18n="stat_clients_label">Clients</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="stat-num">3+</span><span class="stat-label" data-i18n="stat_exp_label">Years Exp.</span></div>
+        </div>
+      </div>
+      <div class="hero-image-wrap" data-aos="fade-left" data-aos-duration="1000">
+        <div class="hero-img-container">
+          <div class="hero-img-ring ring1"></div>
+          <div class="hero-img-ring ring2"></div>
+          <div class="hero-img-ring ring3"></div>
+          <div class="hero-img-glow"></div>
+          <div class="hero-img-placeholder">
+            <div class="avatar-initials">MHA</div>
+            <div class="avatar-icon"><i class="fas fa-code"></i></div>
+          </div>
+        </div>
+        <div class="hero-tech-badges">
+          <div class="tech-badge tb1"><i class="fab fa-react"></i> React</div>
+          <div class="tech-badge tb2"><i class="fab fa-node-js"></i> Node</div>
+          <div class="tech-badge tb3"><i class="fab fa-python"></i> Python</div>
+          <div class="tech-badge tb4"><i class="fab fa-js"></i> JS</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        <span class="scroll-hint-text" data-i18n="scroll_down">Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="about_tag">Get To Know</span>
+        <h2 class="section-title" data-i18n="about_title">About <span class="gold">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-col" data-aos="fade-right">
+          <div class="about-img-card">
+            <div class="about-img-placeholder">
+              <img src="profetional.png" alt="Md. Mehedi Hasan Abir" class="about-real-img" />
+            </div>
+            <div class="about-img-badge">
+              <i class="fas fa-star"></i>
+              <span data-i18n="premium_dev">Premium Developer</span>
+            </div>
+            <div class="experience-badge">
+              <span class="exp-num">3+</span>
+              <span class="exp-text" data-i18n="years_exp">Years of<br>Excellence</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content-col" data-aos="fade-left">
+          <h3 class="about-subtitle" data-i18n="about_subtitle">Transforming Ideas Into <span class="gold">Digital Reality</span></h3>
+          <p class="about-text" data-i18n="about_text_1">Hello! I'm <strong>Md. Mehedi Hasan Abir</strong>, a passionate Web Developer, Programmer, and Creative Thinker from Bangladesh. I specialize in creating premium digital experiences that merge cutting-edge technology with stunning design aesthetics.</p>
+          <p class="about-text" data-i18n="about_text_2">With expertise spanning full-stack development, UI/UX design, and AI integrations, I deliver solutions that not only look exceptional but perform flawlessly. Every project I undertake receives my full dedication to craft something truly extraordinary.</p>
+          <div class="about-info-grid">
+            <div class="info-item"><i class="fas fa-user gold"></i><span><strong data-i18n="label_name">Name:</strong> Md. Mehedi Hasan Abir</span></div>
+            <div class="info-item"><i class="fas fa-envelope gold"></i><span><strong data-i18n="label_email">Email:</strong> mahadi.abir208@gmail.com</span></div>
+            <div class="info-item"><i class="fas fa-map-marker-alt gold"></i><span><strong data-i18n="label_location">Location:</strong> Mymensingh, Bangladesh</span></div>
+            <div class="info-item"><i class="fas fa-briefcase gold"></i><span><strong data-i18n="label_status">Status:</strong> <span class="available" data-i18n="available">Available</span></span></div>
+          </div>
+          <div class="about-btns">
+            <a href="#contact" class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_lets_talk">Let's Talk</span></a>
+            <a href="#" class="btn-outline" id="downloadCV2"><i class="fas fa-download"></i> <span data-i18n="btn_download_cv">Download CV</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline-section" data-aos="fade-up">
+        <h3 class="timeline-title" data-i18n="timeline_title">My <span class="gold">Journey</span></h3>
+        <div class="timeline">
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2020</span>
+              <h4 data-i18n="tl_1_title">Started Coding Journey</h4>
+              <p data-i18n="tl_1_desc">Began learning HTML, CSS and JavaScript, falling in love with the art of building for the web.</p>
+            </div>
+          </div>
+          <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-dot"><i class="fas fa-code"></i></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2021</span>
+              <h4 data-i18n="tl_2_title">First Freelance Project</h4>
+              <p data-i18n="tl_2_desc">Landed first client on Fiverr, delivering a premium business website that received 5-star reviews.</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"><i class="fab fa-react"></i></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2022</span>
+              <h4 data-i18n="tl_3_title">Mastered React & Node.js</h4>
+              <p data-i18n="tl_3_desc">Expanded into full-stack development, building complex web applications with modern technologies.</p>
+            </div>
+          </div>
+          <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-dot"><i class="fas fa-robot"></i></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2023</span>
+              <h4 data-i18n="tl_4_title">AI & Advanced Solutions</h4>
+              <p data-i18n="tl_4_desc">Integrated AI tools and prompt engineering into projects, offering next-generation digital solutions.</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"><i class="fas fa-star"></i></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2024+</span>
+              <h4 data-i18n="tl_5_title">Premium Portfolio Growth</h4>
+              <p data-i18n="tl_5_desc">Scaling business with 50+ completed projects, serving clients globally with premium quality work.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="skills_tag">My Expertise</span>
+        <h2 class="section-title" data-i18n="skills_title">Technical <span class="gold">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-bars-col" data-aos="fade-right">
+          <h3 class="skills-subtitle" data-i18n="skills_proficiency">Proficiency Levels</h3>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fab fa-html5"></i> HTML5</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fab fa-css3-alt"></i> CSS3 / SCSS</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fab fa-js"></i> JavaScript</span><span class="skill-pct">88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fab fa-react"></i> React.js</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fab fa-node-js"></i> Node.js</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fab fa-python"></i> Python</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fab fa-linux"></i> Linux</span><span class="skill-pct">78%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fas fa-paint-brush"></i> UI/UX Design</span><span class="skill-pct">82%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-info"><span><i class="fas fa-robot"></i> AI Prompt Engineering</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+        </div>
+        <div class="skills-cards-col" data-aos="fade-left">
+          <h3 class="skills-subtitle" data-i18n="skills_tools">Tools & Technologies</h3>
+          <div class="skills-icons-grid">
+            <div class="skill-icon-card"><i class="fab fa-html5"></i><span>HTML5</span></div>
+            <div class="skill-icon-card"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+            <div class="skill-icon-card"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+            <div class="skill-icon-card"><i class="fab fa-react"></i><span>React</span></div>
+            <div class="skill-icon-card"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+            <div class="skill-icon-card"><i class="fab fa-python"></i><span>Python</span></div>
+            <div class="skill-icon-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
+            <div class="skill-icon-card"><i class="fab fa-github"></i><span>GitHub</span></div>
+            <div class="skill-icon-card"><i class="fab fa-linux"></i><span>Linux</span></div>
+            <div class="skill-icon-card"><i class="fas fa-database"></i><span>MongoDB</span></div>
+            <div class="skill-icon-card"><i class="fab fa-figma"></i><span>Figma</span></div>
+            <div class="skill-icon-card"><i class="fas fa-robot"></i><span>AI Tools</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="services_tag">What I Offer</span>
+        <h2 class="section-title" data-i18n="services_title">Premium <span class="gold">Services</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="service-glow"></div>
+          <h3>Website Development</h3>
+          <p>Full-stack web applications built with modern frameworks, optimized for performance, scalability, and user experience.</p>
+          <div class="service-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+          <a href="#contact" class="service-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-badge">Popular</div>
+          <div class="service-icon"><i class="fas fa-rocket"></i></div>
+          <div class="service-glow"></div>
+          <h3>Landing Page Design</h3>
+          <p>High-converting, visually stunning landing pages that captivate visitors and turn them into loyal customers.</p>
+          <div class="service-tags"><span>HTML/CSS</span><span>JS</span><span>SEO</span></div>
+          <a href="#contact" class="service-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon"><i class="fas fa-user-circle"></i></div>
+          <div class="service-glow"></div>
+          <h3>Portfolio Website</h3>
+          <p>Premium portfolio websites that showcase your work impressively and attract high-quality clients and opportunities.</p>
+          <div class="service-tags"><span>Premium</span><span>Animated</span><span>Responsive</span></div>
+          <a href="#contact" class="service-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon"><i class="fas fa-bug"></i></div>
+          <div class="service-glow"></div>
+          <h3>Bug Fixing</h3>
+          <p>Fast and reliable debugging services. I identify and fix issues quickly, ensuring your website runs smoothly.</p>
+          <div class="service-tags"><span>Fast</span><span>Reliable</span><span>Guaranteed</span></div>
+          <a href="#contact" class="service-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+          <div class="service-glow"></div>
+          <h3>UI/UX Design</h3>
+          <p>Beautiful, intuitive interfaces designed with user psychology in mind, creating experiences users love.</p>
+          <div class="service-tags"><span>Figma</span><span>Wireframes</span><span>Prototypes</span></div>
+          <a href="#contact" class="service-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon"><i class="fas fa-brain"></i></div>
+          <div class="service-glow"></div>
+          <h3>AI Solutions</h3>
+          <p>Cutting-edge AI integrations, chatbots, automation systems, and intelligent solutions for your business.</p>
+          <div class="service-tags"><span>ChatGPT</span><span>Automation</span><span>ML</span></div>
+          <a href="#contact" class="service-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="projects_tag">My Work</span>
+        <h2 class="section-title" data-i18n="projects_title">Featured <span class="gold">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-filter" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+        <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web Dev</button>
+        <button class="filter-btn" data-filter="design" data-i18n="filter_design">UI/UX</button>
+        <button class="filter-btn" data-filter="ai" data-i18n="filter_ai">AI</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="0">
+          <div class="project-img">
+            <div class="project-img-placeholder"><i class="fas fa-globe"></i></div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="project-link"><i class="fas fa-eye"></i> Live Preview</a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+            <h3>E-Commerce Platform</h3>
+            <p>Full-stack e-commerce solution with payment integration, real-time inventory, and admin dashboard.</p>
+          </div>
+        </div>
+        <div class="project-card" data-category="design" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-img">
+            <div class="project-img-placeholder pi2"><i class="fas fa-mobile-alt"></i></div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="project-link"><i class="fas fa-eye"></i> Live Preview</a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>Figma</span><span>CSS</span><span>JS</span></div>
+            <h3>SaaS Dashboard UI</h3>
+            <p>Stunning analytics dashboard with dark mode, real-time charts, and premium glassmorphism design.</p>
+          </div>
+        </div>
+        <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-img">
+            <div class="project-img-placeholder pi3"><i class="fas fa-robot"></i></div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="project-link"><i class="fas fa-eye"></i> Live Preview</a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>Python</span><span>OpenAI</span><span>React</span></div>
+            <h3>AI Chatbot Assistant</h3>
+            <p>Intelligent customer service chatbot with NLP, context awareness, and seamless website integration.</p>
+          </div>
+        </div>
+        <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-img">
+            <div class="project-img-placeholder pi4"><i class="fas fa-store"></i></div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="project-link"><i class="fas fa-eye"></i> Live Preview</a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>HTML/CSS</span><span>JavaScript</span><span>Firebase</span></div>
+            <h3>Restaurant Website</h3>
+            <p>Premium restaurant landing page with online reservations, menu showcase, and smooth animations.</p>
+          </div>
+        </div>
+        <div class="project-card" data-category="design" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-img">
+            <div class="project-img-placeholder pi5"><i class="fas fa-briefcase"></i></div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="project-link"><i class="fas fa-eye"></i> Live Preview</a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>React</span><span>GSAP</span><span>CSS</span></div>
+            <h3>Agency Portfolio</h3>
+            <p>Luxurious creative agency portfolio with micro-animations, parallax effects, and premium aesthetics.</p>
+          </div>
+        </div>
+        <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="500">
+          <div class="project-img">
+            <div class="project-img-placeholder pi6"><i class="fas fa-chart-line"></i></div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="project-link"><i class="fas fa-eye"></i> Live Preview</a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>Python</span><span>ML</span><span>Node.js</span></div>
+            <h3>Data Analytics Tool</h3>
+            <p>AI-powered data visualization and analytics platform with predictive insights and reporting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTICS SECTION -->
+  <section class="stats section" id="stats">
+    <div class="stats-bg"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
+          <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="stat-counter" data-target="50">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label" data-i18n="stat_projects">Projects Completed</div>
+        </div>
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="stat-icon"><i class="fas fa-smile"></i></div>
+          <div class="stat-counter" data-target="30">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label" data-i18n="stat_clients">Happy Clients</div>
+        </div>
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="stat-counter" data-target="3">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label" data-i18n="stat_years">Years Experience</div>
+        </div>
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+          <div class="stat-counter" data-target="98">0</div>
+          <div class="stat-plus">%</div>
+          <div class="stat-label" data-i18n="stat_success">Success Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="testimonials_tag">Client Reviews</span>
+        <h2 class="section-title" data-i18n="testimonials_title">What Clients <span class="gold">Say</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="testimonials-slider" id="testimonialsSlider">
+        <div class="testimonial-card active" data-aos="fade-up">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p class="testimonial-text" data-i18n="test_1">Abir delivered an absolutely stunning website beyond my expectations. His attention to detail, creativity, and professionalism are unmatched. Highly recommend!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <strong>Sarah Johnson</strong>
+              <span>CEO, TechStart Inc.</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p class="testimonial-text" data-i18n="test_2">Working with Abir was a game-changer for my business. He built a premium e-commerce platform that increased my sales by 200%. Exceptional work!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <strong>Ahmed Al-Rashid</strong>
+              <span>Entrepreneur, Dubai</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p class="testimonial-text" data-i18n="test_3">Incredible talent! Abir redesigned our entire website and the results were phenomenal. Fast delivery, stunning design, and excellent communication throughout.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <strong>Emma Thompson</strong>
+              <span>Marketing Director, UK</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up">
+          <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+          <p class="testimonial-text" data-i18n="test_4">Best developer I've ever hired on Fiverr! The AI chatbot he built for our platform saved us thousands in customer support costs. Absolutely brilliant!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <strong>Marcus Chen</strong>
+              <span>CTO, DataFlow Systems</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="testi-prev" id="testiPrev"><i class="fas fa-chevron-left"></i></button>
+        <div class="testi-dots" id="testiDots"></div>
+        <button class="testi-next" id="testiNext"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Visual Showcase</span>
+        <h2 class="section-title">Photo <span class="gold">Gallery</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="gallery-masonry" data-aos="fade-up">
+        <div class="gallery-item gi1" data-src="480683932_1365306428144569_8797592376140915064_n.jpg"><img src="480683932_1365306428144569_8797592376140915064_n.jpg" alt="Abir - Achievement Award" class="gallery-real-img" /><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+        <div class="gallery-item gi2" data-src="me1.jpg"><img src="me1.jpg" alt="Abir - Lakeside" class="gallery-real-img" /><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+        <div class="gallery-item gi3" data-src="1000025521.jpg"><img src="1000025521.jpg" alt="Abir - Portrait" class="gallery-real-img" /><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+        <div class="gallery-item gi4" data-src="me3.jpg"><img src="me3.jpg" alt="Abir - Scout" class="gallery-real-img" /><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+        <div class="gallery-item gi5" data-src="495571414_1418613816147163_8333485737186911043_n.jpg"><img src="495571414_1418613816147163_8333485737186911043_n.jpg" alt="Abir - Casual" class="gallery-real-img" /><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+        <div class="gallery-item gi6" data-src="profetional.png"><img src="profetional.png" alt="Abir - Professional" class="gallery-real-img" /><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION -->
+  <section class="blog section" id="blog">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="blog_tag">Latest Articles</span>
+        <h2 class="section-title" data-i18n="blog_title">My <span class="gold">Blog</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="blog-img"><div class="blog-img-placeholder"><i class="fas fa-react"></i></div></div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-date"><i class="fas fa-calendar"></i> June 2025</span><span class="blog-cat">React</span></div>
+            <h3>10 React Patterns Every Developer Should Know</h3>
+            <p>Explore the most powerful React design patterns that will elevate your code quality and performance.</p>
+            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-img"><div class="blog-img-placeholder bi2"><i class="fas fa-paint-brush"></i></div></div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-date"><i class="fas fa-calendar"></i> May 2025</span><span class="blog-cat">Design</span></div>
+            <h3>Glassmorphism: The Future of UI Design</h3>
+            <p>Deep dive into glassmorphism design trends, implementation techniques, and best practices.</p>
+            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-img"><div class="blog-img-placeholder bi3"><i class="fas fa-robot"></i></div></div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-date"><i class="fas fa-calendar"></i> April 2025</span><span class="blog-cat">AI</span></div>
+            <h3>AI Prompt Engineering: Mastering ChatGPT</h3>
+            <p>Learn advanced prompt engineering techniques to get the most out of AI tools for development.</p>
+            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="faq_tag">Questions</span>
+        <h2 class="section-title" data-i18n="faq_title">Frequently Asked <span class="gold">Questions</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="faq-question">
+            <span data-i18n="faq_q1">How long does a website project take?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Project timelines depend on complexity. A landing page takes 2–5 days, a full website 1–2 weeks, and complex web applications 3–6 weeks. I always deliver on time.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="faq-question">
+            <span data-i18n="faq_q2">What technologies do you specialize in?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>I specialize in HTML5, CSS3, JavaScript, React.js, Node.js, Python, MongoDB, and various modern frameworks and tools for both frontend and backend development.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="faq-question">
+            <span data-i18n="faq_q3">Do you provide post-delivery support?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! I provide free support for 30 days after project delivery. Any bugs or issues will be fixed promptly at no additional cost.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="faq-question">
+            <span data-i18n="faq_q4">Are your websites mobile-responsive?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, 100%! Every website I build is fully responsive and tested across all devices — mobile, tablet, laptop, and desktop — ensuring a perfect experience everywhere.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="faq-question">
+            <span data-i18n="faq_q5">What payment methods do you accept?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>I accept payments through Fiverr, Upwork, PayPal, bank transfer, and bKash. We can discuss the most convenient option for your location.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+          <div class="faq-question">
+            <span data-i18n="faq_q6">Can you redesign my existing website?</span>
+            <i class="fas fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Definitely! I love website redesign projects. I analyze your current site and transform it into a premium, modern, high-performing digital experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-i18n="contact_tag">Get In Touch</span>
+        <h2 class="section-title" data-i18n="contact_title">Contact <span class="gold">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info-col" data-aos="fade-right">
+          <h3 class="contact-subtitle" data-i18n="contact_subtitle">Let's Create Something <span class="gold">Amazing</span></h3>
+          <p class="contact-desc" data-i18n="contact_desc">Ready to take your digital presence to the next level? I'm available for freelance projects, full-time opportunities, and collaborations. Let's build something extraordinary together!</p>
+          <div class="contact-methods">
+            <a href="mailto:mahadi.abir208@gmail.com" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div><strong data-i18n="label_gmail">Gmail</strong><span>mahadi.abir208@gmail.com</span></div>
+            </a>
+            <a href="https://wa.me/8801609221481" target="_blank" class="contact-item">
+              <div class="contact-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+              <div><strong data-i18n="label_whatsapp">WhatsApp</strong><span>+880 1609-221481</span></div>
+            </a>
+            <a href="https://t.me/01609221481" target="_blank" class="contact-item">
+              <div class="contact-icon telegram"><i class="fab fa-telegram"></i></div>
+              <div><strong data-i18n="label_telegram">Telegram</strong><span>01609221481</span></div>
+            </a>
+            <a href="tel:+8801609221481" class="contact-item">
+              <div class="contact-icon phone"><i class="fas fa-phone-alt"></i></div>
+              <div><strong data-i18n="label_phone">Phone</strong><span>+8801609221481</span></div>
+            </a>
+            <a href="https://maps.google.com/?q=Mymensingh,Bangladesh" target="_blank" class="contact-item">
+              <div class="contact-icon location"><i class="fas fa-map-marker-alt"></i></div>
+              <div><strong data-i18n="label_location2">Location</strong><span>Mymensingh, Bangladesh</span></div>
+            </a>
+          </div>
+          <div class="contact-socials">
+            <a href="https://web.facebook.com/mahadi.hasan.abir.127077/photos" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mahadi.abir99/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/8801609221481" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:mahadi.abir208@gmail.com" target="_blank" title="Gmail"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://fiverr.com" target="_blank" title="Fiverr"><i class="fas fa-f"></i></a>
+            <a href="https://upwork.com" target="_blank" title="Upwork"><i class="fas fa-u"></i></a>
+          </div>
+        </div>
+        <div class="contact-form-col" data-aos="fade-left">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName" data-i18n="form_name">Your Name</label>
+                <input type="text" id="contactName" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="contactEmail" data-i18n="form_email">Your Email</label>
+                <input type="email" id="contactEmail" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactSubject" data-i18n="form_subject">Subject</label>
+              <input type="text" id="contactSubject" placeholder="Project Inquiry" required />
+            </div>
+            <div class="form-group">
+              <label for="contactBudget" data-i18n="form_budget">Budget Range</label>
+              <select id="contactBudget">
+                <option value="" data-i18n="form_select_budget">Select Budget</option>
+                <option value="50-200">$50 - $200</option>
+                <option value="200-500">$200 - $500</option>
+                <option value="500-1000">$500 - $1,000</option>
+                <option value="1000+">$1,000+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage" data-i18n="form_message">Message</label>
+              <textarea id="contactMessage" rows="5" data-i18n-placeholder="form_message_placeholder" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span class="btn-submit-text" data-i18n="form_submit">Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">Abir<span>.</span></div>
+            <p data-i18n="footer_desc">Web Developer, Programmer & Creative Thinker crafting premium digital experiences that make a lasting impression.</p>
+            <div class="footer-socials">
+              <a href="https://web.facebook.com/mahadi.hasan.abir.127077/photos" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/mahadi.abir99/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/8801609221481" target="_blank"><i class="fab fa-whatsapp"></i></a>
+              <a href="mailto:mahadi.abir208@gmail.com"><i class="fas fa-envelope"></i></a>
+              <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4 data-i18n="footer_quick">Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4 data-i18n="footer_services">Services</h4>
+            <ul>
+              <li><a href="#">Website Development</a></li>
+              <li><a href="#">Landing Page Design</a></li>
+              <li><a href="#">Portfolio Creation</a></li>
+              <li><a href="#">Bug Fixing</a></li>
+              <li><a href="#">UI/UX Design</a></li>
+              <li><a href="#">AI Solutions</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4 data-i18n="footer_hire">Hire Me On</h4>
+            <ul>
+              <li><a href="https://fiverr.com" target="_blank"><i class="fas fa-external-link-alt"></i> Fiverr</a></li>
+              <li><a href="https://upwork.com" target="_blank"><i class="fas fa-external-link-alt"></i> Upwork</a></li>
+              <li><a href="https://linkedin.com" target="_blank"><i class="fas fa-external-link-alt"></i> LinkedIn</a></li>
+              <li><a href="https://github.com" target="_blank"><i class="fas fa-external-link-alt"></i> GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2024 <span class="gold">Md. Mehedi Hasan Abir</span>. All Rights Reserved. Crafted with <i class="fas fa-heart" style="color:#e11d48"></i> & Passion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Live Chat Widget -->
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-bubble" id="chatBubble">
+      <i class="fas fa-comment-dots"></i>
+      <span class="chat-badge">1</span>
+    </div>
+    <div class="chat-popup" id="chatPopup">
+      <div class="chat-header">
+        <div class="chat-avatar"><i class="fas fa-user-tie"></i></div>
+        <div>
+          <strong>Abir</strong>
+          <span><span class="online-dot"></span> Online</span>
+        </div>
+        <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-body">
+        <div class="chat-msg">
+          <p>Hi there! 👋 I'm Abir. Ready to build something amazing together? Send me a message!</p>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <a href="https://wa.me/8801609221481" target="_blank" class="chat-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:mahadi.abir208@gmail.com" class="chat-action"><i class="fas fa-envelope"></i> Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+        <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  
+    <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
