@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFloatingBadges();
   initDownloadCV();
   initGallery();
+  initPageClickEffect();
   initLanguage();
 });
 
@@ -657,10 +658,103 @@ document.querySelectorAll('.btn-primary, .btn-secondary, .btn-outline, .btn-hire
   });
 });
 
-// Add ripple keyframe
+// Premium page click/touch effects (ring + glow + spark burst)
 const style = document.createElement('style');
-style.textContent = '@keyframes rippleAnim{to{transform:scale(2.5);opacity:0;}}';
+style.textContent = `
+@keyframes ringExpand { to { transform: translate(-50%, -50%) scale(5); opacity: 0; } }
+@keyframes glowPulse { to { transform: translate(-50%, -50%) scale(3.2); opacity: 0; } }
+@keyframes sparkMove { to { transform: translate(var(--tx), var(--ty)) scale(0.2); opacity: 0; } }
+
+.page-effect-ring {
+  position: fixed; left: 0; top: 0; width: 14px; height: 14px;
+  border-radius: 50%; border: 2px solid rgba(245,166,35,0.95);
+  transform: translate(-50%, -50%) scale(0.2); opacity: 0.9; pointer-events: none;
+  z-index: 99998; will-change: transform, opacity;
+}
+.page-effect-ring.animate { animation: ringExpand 700ms cubic-bezier(.16,.98,.6,.99) both; }
+
+.page-effect-glow {
+  position: fixed; left:0; top:0; width: 28px; height: 28px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(245,166,35,0.9), rgba(59,130,246,0.45) 45%, rgba(167,139,250,0.12) 100%);
+  filter: blur(10px); transform: translate(-50%,-50%) scale(0.3); opacity: 0.9; pointer-events:none; z-index:99997;
+}
+.page-effect-glow.animate { animation: glowPulse 700ms cubic-bezier(.16,.98,.6,.99) both; }
+
+.page-effect-spark {
+  position: fixed; left:0; top:0; width:8px; height:8px; border-radius:50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,166,35,0.95));
+  transform: translate(-50%,-50%) scale(0.9); opacity: 0.95; pointer-events:none; z-index:99999; will-change: transform, opacity;
+}
+`;
 document.head.appendChild(style);
+
+function initPageClickEffect() {
+  function createPremiumEffect(x, y) {
+    // ring
+    const ring = document.createElement('div');
+    ring.className = 'page-effect-ring';
+    ring.style.left = x + 'px'; ring.style.top = y + 'px';
+    document.body.appendChild(ring);
+
+    // glow
+    const glow = document.createElement('div');
+    glow.className = 'page-effect-glow';
+    glow.style.left = x + 'px'; glow.style.top = y + 'px';
+    document.body.appendChild(glow);
+
+    // sparks
+    const sparks = [];
+    const sparkCount = 6 + Math.floor(Math.random()*4);
+    for (let i=0;i<sparkCount;i++) {
+      const s = document.createElement('div');
+      s.className = 'page-effect-spark';
+      s.style.left = x + 'px'; s.style.top = y + 'px';
+      // random angle and distance
+      const angle = (Math.PI * 2) * Math.random();
+      const dist = 28 + Math.random() * 36;
+      const tx = Math.cos(angle) * dist + 'px';
+      const ty = Math.sin(angle) * dist + 'px';
+      s.style.setProperty('--tx', tx);
+      s.style.setProperty('--ty', ty);
+      // staggered duration
+      const dur = 500 + Math.floor(Math.random()*300);
+      s.style.transition = `transform ${dur}ms cubic-bezier(.2,.8,.2,1), opacity ${dur}ms ease-out`;
+      document.body.appendChild(s);
+      sparks.push(s);
+      // trigger movement on next frame
+      requestAnimationFrame(() => {
+        s.style.transform = `translate(${tx}, ${ty}) scale(0.18)`;
+        s.style.opacity = '0';
+      });
+    }
+
+    // animate ring and glow
+    requestAnimationFrame(() => {
+      ring.classList.add('animate');
+      glow.classList.add('animate');
+    });
+
+    // cleanup after animation
+    setTimeout(() => {
+      ring.remove();
+      glow.remove();
+      sparks.forEach(s => s.remove());
+    }, 900);
+  }
+
+  document.addEventListener('click', (e) => {
+    try {
+      const target = e.target;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || (target.closest && target.closest('.no-page-effect')))) return;
+      createPremiumEffect(e.clientX, e.clientY);
+    } catch (err) { /* ignore */ }
+  }, { passive: true });
+
+  document.addEventListener('touchstart', (e) => {
+    const t = e.touches && e.touches[0];
+    if (t) createPremiumEffect(t.clientX, t.clientY);
+  }, { passive: true });
+}
 
 // ===== TILT EFFECT ON CARDS (desktop only) =====
 function initTiltEffect() {
