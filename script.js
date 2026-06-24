@@ -539,8 +539,19 @@ function initDownloadCV() {
   btns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      // Show notification
-      showNotification('CV download will be available soon!', 'info');
+      const href = btn.getAttribute('href');
+      if (href) {
+        const tempLink = document.createElement('a');
+        tempLink.href = href;
+        if (btn.hasAttribute('download')) {
+          tempLink.setAttribute('download', 'MD.docx');
+        }
+        tempLink.style.display = 'none';
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+      }
+      showNotification('CV download is starting automatically.', 'success');
     });
   });
 }
